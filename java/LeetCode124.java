@@ -11,17 +11,17 @@ public class LeetCode124 {
      *  4. 针对上两条，可以用@max变量（全局唯一）记录最大值，@current记录当前路径上的路径和，当@current>@max时更新
      */
 
-//    public void travese(TreeNode node, int path, TreeNode lastNode){
+//    public void travese(TreeNode node, int current, TreeNode lastNode){
 //        if(node==null)
 //            return ;
-//        path += node.val;
-//        if (path> this.max)
-//            this.max = path;
+//        current += node.val;
+//        if (current> this.max)
+//            this.max = current;
 //
 //        if(node.left != lastNode)
-//            travese(node.left, path, node);
+//            travese(node.left, current, node);
 //        if(node.right != lastNode)
-//            travese(node.right, path, node);
+//            travese(node.right, current, node);
 //    }
 
     public int max = -99999999;
