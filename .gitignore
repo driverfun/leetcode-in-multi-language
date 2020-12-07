@@ -15,4 +15,4 @@
 # local IDE config
 .idea/
 .vscode/*
-.out/
+out/*
