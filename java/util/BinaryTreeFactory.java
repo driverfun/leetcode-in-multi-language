@@ -37,7 +37,10 @@ public class BinaryTreeFactory {
             // 偶数号，则是右节点，并更新父节点
             else{
                 iter.right = nodeArray[i];
-                iter = nodeArray[i/2];
+                int x = 0;
+                while(nodeArray[i/2+x]==null)
+                    x += 1;
+                iter = nodeArray[i/2+x];
             }
         }
 
