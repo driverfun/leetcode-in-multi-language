@@ -62,7 +62,6 @@ public class LeetCode144 {
         TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
         List<Integer> preorder = solution.preorderTraversal1(root);
         System.out.println(preorder);
-
     }
 
 }
