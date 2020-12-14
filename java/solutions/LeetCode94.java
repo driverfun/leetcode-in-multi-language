@@ -1,11 +1,14 @@
+package solutions;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 import core.TreeNode;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
-public class LeetCode94 {
+public class LeetCode94 implements SolutionsFacade {
 
     public List<Integer> inorder = new ArrayList<>();
     /**
@@ -61,15 +64,15 @@ public class LeetCode94 {
         return this.inorder;
     }
 
-    public static void main(String[] args){
+    @Override
+    public void calculate(Object... objects) {
 
-        LeetCode94 solution =  new LeetCode94();
-        String[] inputs0 = {"1", "null" ,"2", "3"};
-        String[] inputs1 = {"2", "3" ,"null", "1"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1);
-        List<Integer> inroder = solution.inorderTraversal1(root);
-        System.out.println(inroder);
+        TreeNode root = (TreeNode) objects[0];
 
+        List<Integer> res = inorderTraversal1(root);
+
+        System.out.println(res);
     }
+
 
 }

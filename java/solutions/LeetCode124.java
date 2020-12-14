@@ -1,7 +1,10 @@
+package solutions;
+
 import core.TreeNode;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
-public class LeetCode124 {
+public class LeetCode124 implements SolutionsFacade {
 
     /**
      * 原始思路：
@@ -52,12 +55,10 @@ public class LeetCode124 {
         return this.max;
     }
 
-    public static void main(String[] args){
-        String[] inputs0 = {"-10", "9", "20", "null", "null", "15", "7"};
-        String[] inputs1 = {"1", "2", "3"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
-
-        LeetCode124 solution = new LeetCode124();
-        System.out.println("results: "+ solution.maxPathSum(root));
+    @Override
+    public void calculate(Object... objects) {
+        int res = maxPathSum((TreeNode) objects[0]);
+        System.out.println(res);
     }
+
 }

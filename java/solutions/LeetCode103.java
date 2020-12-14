@@ -1,9 +1,12 @@
+package solutions;
+
 import core.TreeNode;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
 import java.util.*;
 
-public class LeetCode103 {
+public class LeetCode103 implements SolutionsFacade {
 
     /**
      * 和102题目很像，所以这里只说说不同之处：
@@ -59,12 +62,9 @@ public class LeetCode103 {
     }
 
 
-    static public void main(String[] args){
-        String[] inputs0 = {"-10", "9", "20", "null", "null", "15", "7"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
-
-        LeetCode102 solution = new LeetCode102();
-        System.out.println("results: "+ solution.levelOrder(root));
+    @Override
+    public void calculate(Object... objects) {
+        List<List<Integer>>  res = zigzagLevelOrder((TreeNode) objects[0]);
+        System.out.print(res);
     }
-
 }

@@ -1,12 +1,15 @@
+package solutions;
+
 import core.TreeNode;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class LeetCode102 {
+public class LeetCode102 implements SolutionsFacade {
 
     /**
      * 经典题目，因为比较简单，就简单说说：
@@ -42,12 +45,9 @@ public class LeetCode102 {
         return results;
     }
 
-    static public void main(String[] args){
-        String[] inputs0 = {"-10", "9", "20", "null", "null", "15", "7"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
-
-        LeetCode102 solution = new LeetCode102();
-        System.out.println("results: "+ solution.levelOrder(root));
+    @Override
+    public void calculate(Object... objects) {
+        List<List<Integer>>  res = levelOrder((TreeNode) objects[0]);
+        System.out.print(res);
     }
-
 }

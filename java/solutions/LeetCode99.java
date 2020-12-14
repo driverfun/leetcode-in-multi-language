@@ -1,10 +1,13 @@
+package solutions;
+
 import core.TreeNode;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeetCode99 {
+public class LeetCode99 implements SolutionsFacade {
 
     /**
      * 思路：因为BST的中序是个从左到右递增的数组，而题目中表明只有2个值位置错了
@@ -63,13 +66,9 @@ public class LeetCode99 {
             preorder(node.right, val1, val2);
     }
 
-    public static void main(String[] args){
 
-        LeetCode99 solution = new LeetCode99();
-        String[] inputs = {"1", "3", "null", "null", "2"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs);
-        solution.recoverTree(root);
-        System.out.println("debug.");
+    @Override
+    public void calculate(Object... objects) {
+        recoverTree((TreeNode) objects[0]);
     }
-
 }

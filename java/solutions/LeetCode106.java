@@ -1,7 +1,9 @@
-import com.sun.source.tree.Tree;
-import core.TreeNode;
+package solutions;
 
-public class LeetCode106 {
+import core.TreeNode;
+import util.SolutionsFacade;
+
+public class LeetCode106 implements SolutionsFacade {
 
     /**
      * 思路：
@@ -48,12 +50,11 @@ public class LeetCode106 {
         return root;
     }
 
-    public static void main(String[] args){
-        int[] inorder = {9,3,15,20,7};
-        int[] postorder = {9, 15, 7, 20, 3};
+    @Override
+    public void calculate(Object... objects) {
+        TreeNode tree = buildTree((int[]) objects[0], (int[]) objects[1]);
 
-        LeetCode106 solution = new LeetCode106();
-        TreeNode tree = solution.buildTree(inorder, postorder);
         System.out.println("for debug");
     }
+
 }

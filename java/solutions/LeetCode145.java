@@ -1,12 +1,15 @@
+package solutions;
+
+import com.sun.source.tree.Tree;
 import core.TreeNode;
-import jdk.jshell.spi.SPIResolutionException;
 import util.BinaryTreeFactory;
+import util.SolutionsFacade;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class LeetCode145 {
+public class LeetCode145 implements SolutionsFacade {
 
     public List<Integer>  postorder = new ArrayList<>();
     public List<Integer> postorderTraversal(TreeNode root) {
@@ -62,14 +65,9 @@ public class LeetCode145 {
         return postorder;
     }
 
-
-    public static void main(String[] args){
-        LeetCode145 solution =  new LeetCode145();
-        String[] inputs0 = {"1", "null" ,"2", "3"};
-        String[] inputs1 = {"2", "3" ,"null", "1"};
-        String[] inputs2 = {"-10", "9", "7", "8", "null", "6", "null"};
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2);
-        List<Integer> preorder = solution.postorderTraversal1(root);
+    @Override
+    public void calculate(Object... objects) {
+        List<Integer> preorder = postorderTraversal1((TreeNode) objects[0]);
         System.out.println(preorder);
     }
 
