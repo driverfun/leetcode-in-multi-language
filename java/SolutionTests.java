@@ -8,16 +8,17 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.LeetCode94";
+    static String SOLUTIONSCLASS = "solutions.LeetCode112";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
         String[] inputs0 = {"1", "null" ,"2", "3"};
         String[] inputs1 = {"2", "3" ,"null", "1"};
+        String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","null","1"};
 
         // 封装数据
-        TreeNode[] root = {BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1)};
-        Object[] suite = {root};
+        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2) ;
+        Object[] suite = { root, 22 };
 
         // 反射构造测试对象
         Class clazz = Class.forName(SOLUTIONSCLASS);
