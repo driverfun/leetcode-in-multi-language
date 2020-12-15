@@ -18,7 +18,7 @@ public class SolutionTests {
         String[] dump0 = {"null"};
 
         // 封装数据
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(dump0) ;
+        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2) ;
         // 第一个参数转成Object，第二个参数转Object...
         Object[] item = {root, 22 };
         Object[] suite = {item};
