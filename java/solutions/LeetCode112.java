@@ -10,6 +10,7 @@ public class LeetCode112 implements SolutionsFacade {
     public boolean state = false;
     /**
      * 简单题，思路：就是个DFS搜索，递归就完事了
+     * 官方题解还提供了BFS，这种解法不易出错，但要开辟一个额外的队列维护到达当前节点的路径和
      * @param root 输入的二叉树
      * @param sum 所求路径和的目标
      * @return 当某条路径和为目标值时为真，否则为假
@@ -44,17 +45,4 @@ public class LeetCode112 implements SolutionsFacade {
         System.out.println("for debug");
     }
 
-
-
-    static public void main(String[] args){
-
-        String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","null","1"};
-
-        // 封装数据
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2);
-        LeetCode112 solution = new LeetCode112();
-        solution.hasPathSum(root, 22);
-        System.out.println("for debug");
-
-        }
 }

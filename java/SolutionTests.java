@@ -8,17 +8,20 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.LeetCode112";
+    static String SOLUTIONSCLASS = "solutions.LeetCode"+"113";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
         String[] inputs0 = {"1", "null" ,"2", "3"};
         String[] inputs1 = {"2", "3" ,"null", "1"};
-        String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","null","1"};
+        String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
+        String[] dump0 = {"null"};
 
         // 封装数据
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2) ;
-        Object[] suite = { root, 22 };
+        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(dump0) ;
+        // 第一个参数转成Object，第二个参数转Object...
+        Object[] item = {root, 22 };
+        Object[] suite = {item};
 
         // 反射构造测试对象
         Class clazz = Class.forName(SOLUTIONSCLASS);

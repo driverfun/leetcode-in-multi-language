@@ -1,6 +1,10 @@
 package util;
 
+import com.sun.source.tree.Tree;
 import core.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *  二叉树的生成工厂，后期代码会添加统一的工厂接口
@@ -11,6 +15,9 @@ public class BinaryTreeFactory {
 
     /**
      * 静态方法： 生成一棵二叉树
+     * 原思路：根据TreeNode[]数组中的下标做对应，即每一代的相邻子节点下标除2等于他们的父节点下标（这样实现好麻烦）
+     * 新思路：用队列存储TreeNode，观察发现输入顺序其实是树的层序遍历，因此直接让它们出队就行了。
+     *
      * @param inputs 以字符串数组形式输入的测试数据，例：{“-10”, "9", "20", "null", "null", "15","7"}
      * @return 二叉树的root节点
      */
@@ -28,22 +35,23 @@ public class BinaryTreeFactory {
         }
 
         // 2. 遍历数组，并建立关联
-        TreeNode iter = nodeArray[0];
+        int parent = -1;
+        TreeNode iter = null;
         for ( int i=1; i< inputs.length; i++){
-            // 奇数号，则是左节点
-            if (i%2!=0){
-                iter.left = nodeArray[i];
+            while(iter == null){
+                parent += 1;
+                iter = nodeArray[parent];
             }
-            // 偶数号，则是右节点，并更新父节点
-            else{
-                iter.right = nodeArray[i];
-                int x = 0;
-                while(nodeArray[i/2+x]==null)
-                    x += 1;
-                iter = nodeArray[i/2+x];
-            }
+            // 每次添加两个节点
+            iter.left = nodeArray[i];
+            i += 1;
+            if(i== inputs.length)
+                break;
+            iter.right = nodeArray[i];
+            // 移动父节点下标
+            parent += 1;
+            iter = nodeArray[parent];
         }
-
         return nodeArray[0];
     }
 
