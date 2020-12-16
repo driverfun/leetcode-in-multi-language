@@ -28,12 +28,5 @@ public class LeetCode96 {
         return kinds[n];
     }
 
-
-    public static  void main(String[]  args){
-
-        LeetCode96 solution = new LeetCode96();
-        System.out.println("result : "+  solution.numTrees(4));
-
-    }
 }
 
