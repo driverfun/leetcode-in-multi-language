@@ -64,12 +64,63 @@ public class LeetCode94 implements SolutionsFacade {
         return this.inorder;
     }
 
+    /**
+     * 尝试morris版的中序遍历，即寻找前驱节点，并将其右子节点指向当前。
+     * @param root 二叉树根节点
+     * @return 遍历顺序中各节点的值
+     */
+    public List<Integer> morrisInorder(TreeNode root) {
+
+        //0. root自身非空判断
+        if(root == null)
+            return this.inorder;
+        // 一个节点情况
+        if(root.left == null && root.right == null){
+            this.inorder.add(root.val);
+        }
+        TreeNode pre;
+        // 大于一个节点情况
+        while(root!=null) {
+
+            //1. 寻找左子树的最右节点
+            if (root.left == null) {
+                this.inorder.add(root.val);
+                root = root.right;
+            }else{
+                pre = root.left;
+                while(pre.right!=null){
+                    pre = pre.right;
+                }
+                // 2.找到前驱节点后做判断
+                //   右子节点未设置，
+                if(pre.right!=root){
+                    pre.right = root;
+                }
+                else{
+                //    右子节点已设置，该情况只发生在左子树已遍历完毕，所以记录前驱节点值，并恢复其右子节点为null
+                    this.inorder.add(pre.val);
+                    root = pre.right;
+                    pre.right = null;
+                    if(root.right!=null){
+                        // 中节点
+                        this.inorder.add(root.val);
+                        root = root.right;
+                    }
+
+                }
+                root = root.left;
+            }
+        }
+
+        return  this.inorder;
+    }
+
     @Override
     public void calculate(Object... objects) {
 
         TreeNode root = (TreeNode) objects[0];
 
-        List<Integer> res = inorderTraversal1(root);
+        List<Integer> res = morrisInorder(root);
 
         System.out.println(res);
     }
