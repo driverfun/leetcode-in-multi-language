@@ -56,9 +56,50 @@ public class LeetCode144 implements SolutionsFacade {
         return preorder;
     }
 
+
+    /**
+     * 暂定规律：当前节点的右子节点前驱为左子树最后一个节点
+     * 找左子树最后一个节点：向左边遍历，判断其右节点，直到right为空的节点
+     * @param node
+     * @return
+     */
+    public List<Integer> morrisPreorder(TreeNode node){
+        preorder = new ArrayList<>();
+        TreeNode pre;
+        while(node!=null) {
+            if(node.right !=null) {
+                pre = node.left;
+                while (pre.right != null || pre.left != null) {
+                    // 先右后左
+                    if (pre.right != null && pre.right != node.right)
+                        pre = pre.right;
+                    if (pre.left != null)
+                        pre = pre.left;
+                }
+
+                if (pre.right != node.right) {
+                    pre.right = node.right;
+                    // 当前节点任务完成
+                    this.preorder.add(node.val);
+                    node = node.left;
+                } else {
+                    this.preorder.add(pre.val);
+                    node = pre.right;
+                    pre.right = null;
+                }
+            }else{
+                this.preorder.add(node.val);
+                node = node.left;
+            }
+        }
+
+        return preorder;
+    }
+
+
     @Override
     public void calculate(Object... objects) {
-        List<Integer> preorder = preorderTraversal1((TreeNode) objects[0]);
+        List<Integer> preorder = morrisPreorder((TreeNode) objects[0]);
         System.out.println(preorder);
     }
 

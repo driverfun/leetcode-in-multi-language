@@ -71,13 +71,7 @@ public class LeetCode94 implements SolutionsFacade {
      */
     public List<Integer> morrisInorder(TreeNode root) {
 
-        //0. root自身非空判断
-        if(root == null)
-            return this.inorder;
-        // 一个节点情况
-        if(root.left == null && root.right == null){
-            this.inorder.add(root.val);
-        }
+
         TreeNode pre;
         // 大于一个节点情况
         while(root!=null) {
@@ -88,27 +82,23 @@ public class LeetCode94 implements SolutionsFacade {
                 root = root.right;
             }else{
                 pre = root.left;
-                while(pre.right!=null){
+                while(pre.right!=null && pre.right!=root){
                     pre = pre.right;
                 }
                 // 2.找到前驱节点后做判断
                 //   右子节点未设置，
                 if(pre.right!=root){
                     pre.right = root;
+                    root = root.left;
                 }
                 else{
                 //    右子节点已设置，该情况只发生在左子树已遍历完毕，所以记录前驱节点值，并恢复其右子节点为null
-                    this.inorder.add(pre.val);
-                    root = pre.right;
                     pre.right = null;
-                    if(root.right!=null){
-                        // 中节点
-                        this.inorder.add(root.val);
-                        root = root.right;
-                    }
+                    // 中节点
+                    this.inorder.add(root.val);
+                    root = root.right;
 
                 }
-                root = root.left;
             }
         }
 
