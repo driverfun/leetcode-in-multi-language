@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.LeetCode"+"144";
+    static String SOLUTIONSCLASS = "solutions.LeetCode"+"129";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -16,10 +16,12 @@ public class SolutionTests {
         String[] inputs1 = {"2", "3" ,"null", "1"};
         String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
         String[] bstInputs0 = { "5", "2", "6", "null", "null", "1", "7"};
+        String[] inputs3 = {"1", "2", "3"};
         String[] dump0 = {"null"};
 
         // 封装数据
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs2) ;
+        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs3) ;
+//        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
         Object[] item = {root};
         Object[] suite = {item};

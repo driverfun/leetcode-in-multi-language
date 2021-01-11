@@ -1,6 +1,8 @@
 package solutions;
 
-public class LeetCode96 {
+import util.SolutionsFacade;
+
+public class LeetCode96 implements SolutionsFacade {
 
     public int numTrees(int n) {
         // 动规搞它：
@@ -28,5 +30,9 @@ public class LeetCode96 {
         return kinds[n];
     }
 
+    @Override
+    public void calculate(Object... objects) {
+        System.out.println(numTrees((int)objects[0]));
+    }
 }
 
