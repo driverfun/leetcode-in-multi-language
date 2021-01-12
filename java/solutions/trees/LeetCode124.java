@@ -1,4 +1,4 @@
-package solutions;
+package solutions.trees;
 
 import core.TreeNode;
 import util.BinaryTreeFactory;

@@ -1,4 +1,4 @@
-package solutions;
+package solutions.trees;
 
 import core.Node;
 import util.SolutionsFacade;

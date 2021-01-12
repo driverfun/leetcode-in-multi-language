@@ -1,4 +1,4 @@
-package solutions;
+package solutions.trees;
 
 import com.sun.source.tree.Tree;
 import core.TreeNode;

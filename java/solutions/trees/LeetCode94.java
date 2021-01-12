@@ -1,4 +1,4 @@
-package solutions;
+package solutions.trees;
 
 import java.util.ArrayList;
 import java.util.List;
