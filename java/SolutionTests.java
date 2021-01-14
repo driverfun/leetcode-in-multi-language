@@ -13,7 +13,7 @@ public class SolutionTests {
 
         // 准备测试用例
         String[] inputs0 = {"1", "2", "3"};
-        String[] inputs1 = {"1", "2", "3", "4", "5", "6","7"};
+        String[] inputs1 = {"1", "2", "3", "4", "5", "6"};
         String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
         String[] bstInputs0 = { "5", "2", "6", "null", "null", "1", "7"};
         String[] inputs3 = {"7", "3", "15","null", "null", "9", "20"};
