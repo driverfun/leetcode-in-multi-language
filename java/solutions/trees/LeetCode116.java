@@ -1,6 +1,6 @@
 package solutions.trees;
 
-import core.Node;
+import core.Node1;
 import util.SolutionsFacade;
 
 import java.util.LinkedList;
@@ -13,13 +13,13 @@ public class LeetCode116 implements SolutionsFacade {
      * @param root
      * @return
      */
-    public Node connect(Node root) {
-        Queue<Node> queue = new LinkedList<>();
+    public Node1 connect(Node1 root) {
+        Queue<Node1> queue = new LinkedList<>();
         if (root == null)
             return null;
         queue.add(root);
 
-        Node tmp;
+        Node1 tmp;
         int size = queue.size();
         while (!queue.isEmpty()){
 
@@ -44,7 +44,7 @@ public class LeetCode116 implements SolutionsFacade {
 
     @Override
     public void calculate(Object... objects) {
-        connect((Node) objects[0]);
+        connect((Node1) objects[0]);
         System.out.println("stop for debug!");
     }
 }
