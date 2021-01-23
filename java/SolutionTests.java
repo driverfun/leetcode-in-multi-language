@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"437";
+    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"95";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -17,9 +17,8 @@ public class SolutionTests {
         String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
         // 10,5,-3,3,2,null,11,3,-2,null,1
         String[] bstInputs0 = { "10", "5", "-3", "3", "2", "null", "11", "3", "-2", "null", "1"};
-        // [1,null,2,null,3,null,4,null,5]
-        String[] inputs4 = {"1", "null", "2", "null", "3", "null", "4", "null", "5"};
-        String[] inputs5 = {"3", "2", "2", "2", "null", "null", "2"};
+        // [3,4,5,1,3,null,1]
+        String[] inputs5 = {"3", "4", "5", "1", "3", "null", "1"};
         String[] inputs3 = {"7", "3", "15","null", "null", "9", "20"};
         String[] dump0 = {"1"};
 
@@ -27,7 +26,7 @@ public class SolutionTests {
         TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs5) ;
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = {root, 2};
+        Object[] item = {3};
         Object[] suite = {item};
 
         // 反射构造测试对象
