@@ -8,12 +8,12 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"337";
+    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"297";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
         String[] inputs0 = {"3", "1", "4", "null", "2"};
-        String[] inputs1 = {"1", "2", "3", "4", "5", "6"};
+        String[] inputs1 = {"1", "2", "3", "null", "null", "4", "5", "6", "7"};
         String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
         // 10,5,-3,3,2,null,11,3,-2,null,1
         String[] bstInputs0 = { "10", "5", "-3", "3", "2", "null", "11", "3", "-2", "null", "1"};
@@ -23,7 +23,7 @@ public class SolutionTests {
         String[] dump0 = {"1"};
 
         // 封装数据
-        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs5) ;
+        TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1) ;
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
         Object[] item = {root};
