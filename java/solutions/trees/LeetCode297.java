@@ -10,7 +10,8 @@ public class LeetCode297 implements SolutionsFacade {
 
     /**
      * 一道开放性题目，剑指offer里也有，值得收藏！
-     * 不说更合理的序列化方式，但就这个版本依然有可优化的地方（节省空间的方法）！
+     * 注意：DFS时序列/反序列化不同的遍历顺序
+     *      以及括号编码法等新奇解法
      */
 
     // Encodes a tree to a single string.
@@ -33,6 +34,10 @@ public class LeetCode297 implements SolutionsFacade {
             }
 
         }
+        // 删除不必要的null节点
+        while(res.size()-1>0 && res.get(res.size()-1).equals("null")){
+            res.remove(res.size()-1);
+        }
         return String.join(",", res);
     }
 
@@ -44,18 +49,21 @@ public class LeetCode297 implements SolutionsFacade {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-        for (int j = 1;j< nodes.length;j+=2){
+        for (int j = 1;j< nodes.length;){
             TreeNode tmp = queue.poll();
-            if(tmp==null){
-                j-=2;   // 抵消自增过程
-                continue;
-            }
+            if(tmp==null)continue;
+
             TreeNode left = nodes[j].equals("null")?  null:new TreeNode(Integer.parseInt(nodes[j]));
-            TreeNode right = nodes[j+1].equals("null")?  null:new TreeNode(Integer.parseInt(nodes[j+1]));
             tmp.left = left;
-            tmp.right = right;
             queue.add(left);
-            queue.add(right);
+
+            j+=1;
+            if(j<nodes.length){
+                TreeNode right = nodes[j].equals("null")?  null:new TreeNode(Integer.parseInt(nodes[j]));
+                tmp.right = right;
+                queue.add(right);
+            }
+            j+=1;
         }
         return root;
     }
