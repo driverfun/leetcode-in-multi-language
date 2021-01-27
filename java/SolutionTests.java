@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.dps.LeetCode"+"5";
+    static String SOLUTIONSCLASS = "solutions.dps.LeetCode"+"3";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
