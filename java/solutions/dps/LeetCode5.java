@@ -60,9 +60,45 @@ public class LeetCode5 implements SolutionsFacade {
     }
 
 
+    /**
+     * 动规思想：dp[i][j]含义为下标i到j的字符串，如果它是回文串，则dp[i+1][j-1]也是。
+     *         dp[i][i]肯定是，dp[i][i+1]（如果相等也肯定是），dp[i-1][i+1]两头相等也肯定是，由此可知：
+     *         1. dp[i]!=dp[j]，一定不是；
+     *         2. dp[i]==dp[j]，且j-i=0,1,2（或j-i<3）时一定是回文串，>=3时取决于dp[i+1][j-1]；
+     * 依次向上递推，在这样一个二维矩阵中，实际上只用填一般就够了。
+     * @param s
+     * @return
+     */
+    public String dynamicProgramming(String s) {
+        int len = s.length();
+        int start = 0;
+        int end = 0;
+        int[][] matrix = new int[len][len];
+        for(int i= 0;i < len;i ++)
+            matrix[i][i] = 1;
+        for(int j = 1; j <len ;j ++)
+            for(int i  = 0 ;i< j ;i++) {
+                if (s.charAt(i) != s.charAt(j))
+                    continue;
+                if (j-i<3)
+                    matrix[i][j] = 1;
+                else
+                    // 相等则判断下一级
+                    matrix[i][j] = matrix[i+1][j-1];
+                if(matrix[i][j]==1 && (j-i)>(end-start)){
+                    start = i;
+                    end = j;
+                }
+            }
+        return s.substring(start, end+1);
+    }
+
+
     @Override
     public void calculate(Object... objects) {
-        String res = longestPalindrome((String)objects[0]);
+//        String res = longestPalindrome((String)objects[0]);
+        String res = dynamicProgramming((String)objects[0]);
+
         int s = 0;
     }
 }
