@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.dps.LeetCode"+"5";
+    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"1";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -26,8 +26,9 @@ public class SolutionTests {
         TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1) ;
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        String code = "tabaed";
-        Object[] item = {code};
+        int[] array = {3,3};
+        int target = 6;
+        Object[] item = {array, target};
         Object[] suite = {item};
 
         // 反射构造测试对象

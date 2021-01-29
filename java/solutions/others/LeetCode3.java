@@ -1,4 +1,4 @@
-package solutions.dps;
+package solutions.others;
 
 import util.SolutionsFacade;
 
