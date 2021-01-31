@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"2";
+    static String SOLUTIONSCLASS = "solutions.dps.LeetCode"+"53";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -26,12 +26,12 @@ public class SolutionTests {
 
         // 封装数据
         TreeNode root = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1) ;
-        ListNode l1 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{2,4,3});
-        ListNode l2 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{5,6,4});
+        String s = "abcaaaad";
+        String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
 
-        Object[] item = {l1, l2};
+        Object[] item = {new int[]{8,-19,5,-4,20}};
         Object[] suite = {item};
 
         // 反射构造测试对象
