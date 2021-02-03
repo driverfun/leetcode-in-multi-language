@@ -31,7 +31,7 @@ public class SolutionTests {
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
 
-        Object[] item = {new int[]{8,-19,5,-4,20}};
+        Object[] item = {new int[]{8, -19, 5, -1, 20}};
         Object[] suite = {item};
 
         // 反射构造测试对象
