@@ -6,9 +6,18 @@ public class LeetCode198 implements SolutionsFacade {
 
 
     /**
+     * 方法一：
      * 思路：我们用一个2*n数组记录最优解，第一行（0）代表不偷当前节点的解，第二行（1）代表偷当前节点的解
      *      对于当前节点，如果不选它，则它的最优解是偷/不偷上一节点的最大值；如果选它，必不能选上一节点。
      * 状态方程： f(i) = max{f(1,i-1), f(0,i-1)+nums[i]}
+     *
+     * ！！优化！！
+     * -> 利用两个变量记录当前节点（选/不选的结果），比较并在更新过程中记录较大者，可将空间复杂度优化为O(1)
+     *
+     * 方法二：
+     * 空间复杂度 1*O(n):
+     *          f(i) = max{f(i-1), f(i-2)+nums[i]}
+     *
      * @param nums
      * @return
      */
@@ -27,7 +36,6 @@ public class LeetCode198 implements SolutionsFacade {
                     money[i][j] = money[0][j-1]+nums[j];
             }
         return Math.max(money[0][nums.length-1], money[1][nums.length-1]);
-
     }
 
 
