@@ -38,4 +38,12 @@ func TestMinSwapsCouplesV1(t *testing.T) {
 	for _, ts := range tss {
 		require.Equal(t, ts.ret, MinSwapsCouplesV2(ts.array))
 	}
+	initTss()
+	for _, ts := range tss {
+		require.Equal(t, ts.ret, MinSwapsCouplesV3(ts.array))
+	}
+	initTss()
+	for _, ts := range tss {
+		require.Equal(t, ts.ret, MinSwapsCouplesV4(ts.array))
+	}
 }
