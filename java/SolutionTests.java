@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"543";
+    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"226";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -20,18 +20,18 @@ public class SolutionTests {
         // 10,5,-3,3,2,null,11,3,-2,null,1
         String[] bstInputs0 = { "10", "5", "-3", "3", "2", "null", "11", "3", "-2", "null", "1"};
         // [3,4,5,1,3,null,1]
-        String[] inputs5 = {"3", "4", "5", "1", "3", "null", "1"};
+        String[] inputs5 = {"4", "2", "7", "1", "3", "6", "9"};
         String[] inputs3 = {"7", "3", "15","null", "null", "9", "20"};
         String[] dump0 = {"1","2"};
 
         // 封装数据
         TreeNode root1 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
-        TreeNode root2 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs1);
+        TreeNode root2 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs5);
         String s = "abcaaaad";
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { root1 };
+        Object[] item = { root2 };
         Object[] suite = {item};
 
         // 反射构造测试对象
