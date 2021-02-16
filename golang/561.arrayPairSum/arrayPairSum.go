@@ -25,12 +25,9 @@ func (h Heap) Swap(i, j int) { // 绑定swap方法，交换两个元素位置
 	h[i], h[j] = h[j], h[i]
 }
 
-func (h *Heap) Pop() interface{} { // 绑定pop方法，从最后拿出一个元素并返回
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
+func (h *Heap) Pop() (v interface{}) { // 绑定pop方法，从最后拿出一个元素并返回
+	*h, v = (*h)[:h.Len()-1], (*h)[h.Len()-1]
+	return
 }
 
 func (h *Heap) Push(x interface{}) { // 绑定push方法，插入新元素
