@@ -6,13 +6,13 @@ import util.SolutionsFacade;
 public class LeetCode234 implements SolutionsFacade {
 
     /**
-     * 一种时间复杂度2O(n)或3O(n)，空间复杂度O(n)的解法
-     * 3O(n)法如下文；2O(n)法使用队列替代数组即可；但空间复杂度都未降到O(1)
+     * 一种时间复杂度O(2n)或O(3n)，空间复杂度O(n)的解法
+     * O(3n)法如下文；O(2n)法使用队列替代数组即可；但空间复杂度都未降到O(1)
      * @param head
      * @return
      */
     public boolean isPalindrome(ListNode head) {
-        // 3O(n)法
+        // O(3n)法
         ListNode p = head;
         int len = 0;
         while(p!=null){

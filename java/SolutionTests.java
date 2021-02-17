@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"234";
+    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"206";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -27,7 +27,7 @@ public class SolutionTests {
         // 封装数据
         TreeNode root1 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
         TreeNode root2 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs5);
-        ListNode head = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{1,2,3,2,1});
+        ListNode head = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{1,2,3,4,5});
 
         String s = "abcaaaad";
         String p = "ab.a*d";
