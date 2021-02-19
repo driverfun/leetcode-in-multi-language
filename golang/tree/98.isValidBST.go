@@ -1,13 +1,14 @@
 package _tree
 
-/* 在左序遍历二叉搜索树的过程中，节点值是递增的
+/* 在中序遍历二叉搜索树的过程中，节点值是递增的
 二叉搜索树性质：
 	节点的左子树只包含小于当前节点的数。
 	节点的右子树只包含大于当前节点的数。
 	所有左子树和右子树自身必须也是二叉搜索树。
 */
 
-func IsValidBST(root *TreeNode) bool {
+// 循环遍历
+func IsValidBSTV1(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -28,4 +29,29 @@ func IsValidBST(root *TreeNode) bool {
 		root = root.Right
 	}
 	return true
+}
+
+// 迭代遍历
+func IsValidBSTV2(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	var last *TreeNode
+	res := true
+	var inorder func(root *TreeNode)
+	inorder = func(root *TreeNode) {
+		if root.Left != nil {
+			inorder(root.Left)
+		}
+		if last != nil && root.Val <= last.Val {
+			res = false
+			return
+		}
+		last = root
+		if root.Right != nil {
+			inorder(root.Right)
+		}
+	}
+	inorder(root)
+	return res
 }
