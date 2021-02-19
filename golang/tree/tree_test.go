@@ -15,3 +15,12 @@ func TestIsValidBSTV2(t *testing.T) {
 	IsValidBSTV2(tn5)
 	require.False(t, IsValidBSTV2(tn5))
 }
+
+func TestZigzagLevelOrder(t *testing.T) {
+	tn9 := &TreeNode{Val: 9}
+	tn15 := &TreeNode{Val: 15}
+	tn7 := &TreeNode{Val: 7}
+	tn20 := &TreeNode{Val: 20, Left: tn15, Right: tn7}
+	tn3 := &TreeNode{Val: 3, Left: tn9, Right: tn20}
+	ZigzagLevelOrder(tn3)
+}
