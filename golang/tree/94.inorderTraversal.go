@@ -1,11 +1,5 @@
 package _tree
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func inorderTraversalV1(root *TreeNode) []int {
 	if root == nil {
 		return nil
