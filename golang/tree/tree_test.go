@@ -24,3 +24,12 @@ func TestZigzagLevelOrder(t *testing.T) {
 	tn3 := &TreeNode{Val: 3, Left: tn9, Right: tn20}
 	ZigzagLevelOrder(tn3)
 }
+
+func TestConstructor(t *testing.T) {
+	tn3 := &TreeNode{Val: 3}
+	tn9 := &TreeNode{Val: 9}
+	tn20 := &TreeNode{Val: 20}
+	tn15 := &TreeNode{Val: 15, Left: tn9, Right: tn20}
+	tn7 := &TreeNode{Val: 7, Left: tn3, Right: tn15}
+	Constructor(tn7)
+}
