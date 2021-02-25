@@ -4,13 +4,15 @@ import util.BinaryTreeFactory;
 import util.LinkedListFactory;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * 使用反射避免import一堆包，也可以使用哪个算法就import solutions.*
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"200";
+    static String SOLUTIONSCLASS = "solutions.dps.LeetCode"+"139";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -33,7 +35,7 @@ public class SolutionTests {
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { new char[][] {{'1','1','1'},{'0','1','0'},{'1','1','1'}} };
+        Object[] item = { "ab", new ArrayList<>(Arrays.asList("a", "b")) };
         Object[] suite = {item};
 
         // 反射构造测试对象
