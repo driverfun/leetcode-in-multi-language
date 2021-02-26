@@ -33,4 +33,5 @@ func TestConstructor(t *testing.T) {
 	tn7 := &TreeNode{Val: 7, Left: tn3, Right: tn15}
 	Constructor(tn7)
 	rightSideView(tn7)
+	countNodes(tn7)
 }
