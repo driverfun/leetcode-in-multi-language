@@ -31,7 +31,8 @@ func TestConstructor(t *testing.T) {
 	tn20 := &TreeNode{Val: 20}
 	tn15 := &TreeNode{Val: 15, Left: tn9, Right: tn20}
 	tn7 := &TreeNode{Val: 7, Left: tn3, Right: tn15}
-	Constructor(tn7)
-	rightSideView(tn7)
-	countNodes(tn7)
+	ser := ConstructorV2()
+	deser := ConstructorV2()
+	s := ser.serialize(tn7)
+	deser.deserialize(s)
 }
