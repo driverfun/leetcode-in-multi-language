@@ -6,9 +6,9 @@
 - `union(x, y)` 合并两个集合.
 - 优化：
 1. find 的过程中进行 path compression
-![image]()
-![image]()
+![image](https://github.com/driverfun/leetcode-in-multi-language/blob/master/golang/unionfind/find_path_compression.jpg)
 2. union 的过程将 size 小的集合的根节点指向 size 较大的根节点
+![image](https://github.com/driverfun/leetcode-in-multi-language/blob/master/golang/unionfind/union_by_rank.jpg)
 
 ## 代码结构
 ```
