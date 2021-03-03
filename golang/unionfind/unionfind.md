@@ -1,4 +1,4 @@
-##并查集基本用途
+## 并查集基本用途
 - 查联通数量、节点之间的联通关系等
 
 ## 基本思想
@@ -65,5 +65,5 @@ func (uf *unionFind) union(x, y int) bool {
 
 ## 相关题型
 
-- LeetCode 684 冗余连接
-- LeetCode 547 查省份数量
+- LeetCode 684 [冗余连接](https://leetcode-cn.com/problems/redundant-connection/)
+- LeetCode 547 [查省份数量](https://leetcode-cn.com/problems/number-of-provinces/)
