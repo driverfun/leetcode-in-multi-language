@@ -74,8 +74,66 @@ public class LeetCode148 implements SolutionsFacade {
 
     }
 
+
+    /**
+     * 归并法：自顶向下式！
+     *
+     * 传入一段链表，其中对它进行分割改造（中间点屁股断开）
+     * 重新整理后返回新的头节点
+     * @return
+     */
+    ListNode divideAndMerge(ListNode head){
+        if(head.next ==null)
+            return head;
+        ListNode slow = head, fast = head;
+        while(fast.next!=null&& fast.next.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        ListNode h2 = slow.next;
+        slow.next = null;
+        ListNode h1 =divideAndMerge(head);
+        h2 = divideAndMerge(h2);
+        return merge(h1, h2);
+    }
+
+
+    /**
+     * 将第二支链表合并到第一支来。
+     * 共用到5个指针
+     * @param h1
+     * @param h2
+     * @return
+     */
+    ListNode merge(ListNode h1, ListNode h2){
+        ListNode head = h1.val<=h2.val? h1: h2;
+        ListNode p = h1, q = h2, last = p, tmp;
+        while(p!=null && q!=null){
+            if(q.val<p.val){
+                if(last!=p){
+                    last.next =q;
+                }
+                tmp = q.next;
+                q.next = p;
+                last = q;
+                q = tmp;
+            }
+            else{
+                last =p;
+                p= p.next;
+            }
+        }
+        if(q!=null){
+            last.next = q;
+        }
+        return head;
+    }
+
+
     @Override
     public void calculate(Object... objects) {
-        sortList((ListNode)objects[0]);
+//        sortList((ListNode)objects[0]);
+        ListNode head = divideAndMerge((ListNode)objects[0]);
+        System.out.println("stop");
     }
 }

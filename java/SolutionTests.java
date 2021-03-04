@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"148";
+    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"21";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -29,13 +29,14 @@ public class SolutionTests {
         // 封装数据
         TreeNode root1 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs0);
         TreeNode root2 = BinaryTreeFactory.getBinaryTreeFromStringArray(inputs5);
-        ListNode head = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{4,2,1,3});
+        ListNode h1 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{-1,2,4,7});
+        ListNode h2 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{1,4});
 
         String s = "abcaaaad";
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { head };
+        Object[] item = { h1,h2 };
         Object[] suite = {item};
 
         // 反射构造测试对象
