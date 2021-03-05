@@ -6,14 +6,13 @@ import util.SolutionsFacade;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
 public class LeetCode148 implements SolutionsFacade {
 
     /**
      * 思路：
-     * 猥琐思路：将链表的值存入数组，然后数组排序（要nlogN的话可选的有归并、堆排、快排），再将结果放回链表
-     * 这里的数组排序采用了归并（实际上看了官方题解可以直接对链表分治的），但用了O(2n)的辅助空间。
+     * 猥琐思路：将链表的值存入数组，然后数组排序（要nlogN的话可选的有归并、堆排、快排），再将结果放回链表。
+     * 这里的数组排序采用了归并（实际上看了官方题解可以直接对链表分治的），但用了O(2n)的辅助空间【仅算了存储结果的数组】，实际上还有递归调用的栈O(logN)。
      *
      * @param head
      * @return
@@ -78,8 +77,17 @@ public class LeetCode148 implements SolutionsFacade {
     /**
      * 归并法：自顶向下式！
      *
-     * 传入一段链表，其中对它进行分割改造（中间点屁股断开）
+     * 传入一段链表，其中对它进行分割改造，中间点屁股断开【实际上不断也可以】
      * 重新整理后返回新的头节点
+     *
+     * 复杂度： 时间——O(nlogN)    空间——O(logN)
+     *
+     *
+     * 归并法：自底向上式！
+     *
+     * 用一些辅助变量维系合并的步长，然后一边边的扫描数组，没扫一遍步长翻倍，直到合完整个数组【注意末尾段落可能不够步长】
+     * 相当于省去了分割的过程，从而将空间复杂度降为 O(1)
+     *
      * @return
      */
     ListNode divideAndMerge(ListNode head){
