@@ -1,4 +1,4 @@
-package two_sum
+package other
 
 import (
 	"github.com/stretchr/testify/require"

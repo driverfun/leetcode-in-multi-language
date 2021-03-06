@@ -1,4 +1,4 @@
-package _85_findMaxConsecutiveOnes
+package other
 
 func findMaxConsecutiveOnes(nums []int) int {
 	x, y := 0, 0

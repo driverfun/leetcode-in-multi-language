@@ -1,4 +1,4 @@
-package _65_minSwapsCouples
+package other
 
 import (
 	"testing"

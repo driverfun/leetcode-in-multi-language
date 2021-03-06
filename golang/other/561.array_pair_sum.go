@@ -1,4 +1,4 @@
-package _61_arrayPairSum
+package other
 
 import (
 	"container/heap"
@@ -17,20 +17,27 @@ func arrayPairSumV1(nums []int) int {
 
 type Heap []int // 定义一个类型
 
-func (h Heap) Len() int { return len(h) } // 绑定len方法,返回长度
-func (h Heap) Less(i, j int) bool { // 绑定less方法
+// 绑定len方法,返回长度
+func (h Heap) Len() int { return len(h) }
+
+// 绑定less方法
+func (h Heap) Less(i, j int) bool {
 	return h[i] < h[j] // 如果h[i]<h[j]生成的就是小根堆，如果h[i]>h[j]生成的就是大根堆
 }
-func (h Heap) Swap(i, j int) { // 绑定swap方法，交换两个元素位置
+
+// 绑定swap方法，交换两个元素位置
+func (h Heap) Swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
 
-func (h *Heap) Pop() (v interface{}) { // 绑定pop方法，从最后拿出一个元素并返回
+// 绑定pop方法，从最后拿出一个元素并返回
+func (h *Heap) Pop() (v interface{}) {
 	*h, v = (*h)[:h.Len()-1], (*h)[h.Len()-1]
 	return
 }
 
-func (h *Heap) Push(x interface{}) { // 绑定push方法，插入新元素
+// 绑定push方法，插入新元素
+func (h *Heap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 

@@ -1,4 +1,4 @@
-package _48_findDisappearedNumbers
+package other
 
 import (
 	"fmt"

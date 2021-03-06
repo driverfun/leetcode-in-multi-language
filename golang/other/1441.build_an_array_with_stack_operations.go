@@ -1,4 +1,4 @@
-package _441_build_an_array_with_stack_operations
+package other
 
 func buildArray(target []int, n int) []string {
 	push, pop := "Push", "Pop"

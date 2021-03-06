@@ -1,4 +1,4 @@
-package median_of_two_sorted_arrays
+package other
 
 func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	totalLength := len(nums1) + len(nums2)

@@ -1,4 +1,4 @@
-package two_sum
+package other
 
 // use map. O(n)
 func TwoSumV1(nums []int, target int) []int {

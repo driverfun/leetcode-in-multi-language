@@ -1,4 +1,4 @@
-package _65_minSwapsCouples
+package other
 
 // 利用map，时间复杂度 O(n)
 func MinSwapsCouplesV1(row []int) int {

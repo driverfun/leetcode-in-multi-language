@@ -1,4 +1,4 @@
-package _48_findDisappearedNumbers
+package other
 
 func FindDisappearedNumbers(nums []int) []int {
 	n := len(nums)
