@@ -8,5 +8,6 @@ func TestReverseList(t *testing.T) {
 	list3 := &ListNode{Val: 3, Next: list4}
 	list2 := &ListNode{Val: 2, Next: list3}
 	list1 := &ListNode{Val: 1, Next: list2}
-	ReverseList(list1)
+	//ReverseList(list1)
+	TraverseList(list1)
 }
