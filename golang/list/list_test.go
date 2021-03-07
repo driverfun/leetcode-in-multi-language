@@ -2,12 +2,33 @@ package list
 
 import "testing"
 
+func listNodeFactory(nodes []int) *ListNode {
+	var res *ListNode
+	for i := len(nodes) - 1; i >= 0; i-- {
+		curr := &ListNode{
+			Val:  nodes[i],
+			Next: res,
+		}
+		res = curr
+	}
+	return res
+}
+
+func listNodeFactoryV2(nodes []int) *ListNode {
+	if len(nodes) == 0 {
+		return nil
+	}
+	return &ListNode{Val: nodes[0], Next: listNodeFactoryV2(nodes[1:])}
+}
+
 func TestReverseList(t *testing.T) {
-	list5 := &ListNode{Val: 5}
-	list4 := &ListNode{Val: 4, Next: list5}
-	list3 := &ListNode{Val: 3, Next: list4}
-	list2 := &ListNode{Val: 2, Next: list3}
-	list1 := &ListNode{Val: 1, Next: list2}
-	//ReverseList(list1)
-	TraverseList(list1)
+	ReverseList(listNodeFactoryV2([]int{1, 2, 3, 4, 5}))
+}
+
+func TestIsPalindrome(t *testing.T) {
+	IsPalindrome(listNodeFactoryV2([]int{1, 2, 2, 1}))
+}
+
+func TestIsPalindromeV2(t *testing.T) {
+	IsPalindromeV2(listNodeFactoryV2([]int{1, 2, 2, 1}))
 }
