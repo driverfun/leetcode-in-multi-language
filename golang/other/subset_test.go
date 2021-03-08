@@ -6,5 +6,5 @@ import (
 )
 
 func TestSubsets(t *testing.T) {
-	fmt.Println(Subsets([]int{9, 0, 3, 5, 7}))
+	fmt.Println(subsetsV2([]int{9, 0, 3, 5, 7}))
 }
