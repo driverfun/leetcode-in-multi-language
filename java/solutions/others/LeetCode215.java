@@ -2,6 +2,8 @@ package solutions.others;
 
 import util.SolutionsFacade;
 
+import java.util.Random;
+
 public class LeetCode215 implements SolutionsFacade {
 
 
@@ -55,9 +57,7 @@ public class LeetCode215 implements SolutionsFacade {
      * 当k=n时，算法相当于对整个数组排序，测试时间复杂度O(nlogn)，也是要比上一个插排版本O(n^2)快的。
      * 根据优化效果，可大胆猜测其测试用例，大部分的k属于较小数。
      *
-     *
      * 另，快排也可以改造一番使用。
-     *
      *
      * @param nums
      * @param k
@@ -118,9 +118,54 @@ public class LeetCode215 implements SolutionsFacade {
 
 
 
+
+    /**
+     * 试试改造后的快排算法，按照每轮的分割点做选择依据，只对倒数第k大元素所在的区间做快排。
+     * 实际经过测试发现，基准必须随机化才能真正提高运行效率。
+     *
+     * ！！！！如果不随机，当测试用例是近乎有序的情况，递归树会退化成链表，时间复杂度从O(NlogN)编程O(N^2)！！！！
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int findKthLargest2(int[] nums, int k) {
+        QuickSort(nums,0, nums.length-1, k);
+        return nums[nums.length-k];
+    }
+
+
+    void QuickSort(int[] nums, int start, int end, int k){
+        if(start>=end)
+            return ;
+        int pivot = new Random().nextInt(end-start+1)+start;
+        int base = nums[pivot];
+        // 将基准换到首位来吧
+        int i =start, j = end;
+        while(i<j){
+            // 找到了右侧交换者
+            while(nums[j]> base && i<j)
+                j--;
+            // 找到了左侧交换者
+            while(nums[i]<= base && i<j) {
+                i++;
+            }
+            if(i<j)
+                swap(nums, i, j);
+        }
+        swap(nums, j, start);
+        if(j==nums.length-k)
+            return ;
+        if(j>nums.length-k)
+            QuickSort(nums, start, j-1,k);
+        else
+            QuickSort(nums, j+1, end, k);
+    }
+
+
     @Override
     public void calculate(Object... objects) {
-        int k = findKthLargest1((int[])objects[0], (int)objects[1]);
+        int k = findKthLargest2((int[])objects[0], (int)objects[1]);
         System.out.println("yes");
     }
 

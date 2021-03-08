@@ -36,7 +36,7 @@ public class SolutionTests {
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { new int[]{-1, -1},2 };
+        Object[] item = { new int[]{3,2,1,5,6,4},2 };
         Object[] suite = {item};
 
         // 反射构造测试对象
