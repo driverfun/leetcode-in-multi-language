@@ -28,3 +28,11 @@ func TestInsertSort(t *testing.T) {
 		require.Greater(t, nums[i+1], nums[i])
 	}
 }
+
+func TestBubbleSort(t *testing.T) {
+	nums := randomInts(1000)
+	BubbleSort(nums)
+	for i := 0; i < len(nums)-1; i++ {
+		require.Greater(t, nums[i+1], nums[i])
+	}
+}
