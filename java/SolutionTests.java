@@ -12,11 +12,11 @@ import java.util.Arrays;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.others.LeetCode"+"215";
+    static String SOLUTIONSCLASS = "solutions.trees.LeetCode"+"538";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
-        String[] inputs0 = {"1","2","3","4","5"};
+        String[] inputs0 = {"3","2","4","1"};
         String[] inputs1 = {"2","1","3","null","4","null","7"};
         String[] inputs2 = {"5","4","8","11","null","13","4","7","2","null","null","5","1"};
         // 10,5,-3,3,2,null,11,3,-2,null,1
@@ -36,7 +36,7 @@ public class SolutionTests {
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { new int[]{3,2,1,5,6,4},2 };
+        Object[] item = { root1};
         Object[] suite = {item};
 
         // 反射构造测试对象
