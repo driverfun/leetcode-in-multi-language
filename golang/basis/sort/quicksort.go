@@ -21,9 +21,9 @@ func QuickSort(nums []int) {
 	pivot := nums[length-1]
 	left, right := 0, length-2
 	for left != right {
-		if nums[left] < pivot {
+		if nums[left] <= pivot {
 			left++
-		} else if nums[right] > pivot {
+		} else if nums[right] >= pivot {
 			right--
 		} else {
 			nums[left], nums[right] = nums[right], nums[left]
