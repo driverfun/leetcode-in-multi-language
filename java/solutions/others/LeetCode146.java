@@ -126,16 +126,22 @@ public class LeetCode146 {
      *     哈希表的结构设计，必须方便删除操作，Deque中我们保存key， HashMap的value中我们保存以引用做key的真实值。
      *
      * 补充：
-     *     说实话，有点担心put、remove的key正好是哑节点对应的key。不过这道题，已经明确了测试用例key的范围，可以可以避免。
+     *     说实话，有点担心put、remove的key正好是哑节点对应的key。
+     * @上一条：
+     *     实际上不必担心哑节点，因为map中只会存真实节点，没必要存哑节点，故不存在覆盖问题。
+     *     因此可以设计成：Map{key - Deque}; Deque{ key - value}（方便删除）
+     *
      */
 
     class MyDeque{
         public int key;
+        public int value;
         public MyDeque next;
         public MyDeque front;
 
-        public MyDeque( int v){
-            key = v;
+        public MyDeque( int k, int v){
+            key = k;
+            value = v;
             next = null;
             front = null;
         }
@@ -157,54 +163,50 @@ public class LeetCode146 {
         }
     }
 
-    private Map<Integer, MyDeque> positions;
-    private Map<Integer, Integer> values;
+    private Map<Integer, MyDeque> map;
     MyDeque head,tail;
     int length;
 
     public LeetCode146(int capacity) {
         base = capacity;
-        head = new MyDeque(-1);
-        tail = new MyDeque(-1);
+        head = new MyDeque(-1, 0);
+        tail = new MyDeque(-1, 0);
         head.next = tail;
         tail.front = head;
         length = 2;
-        values = new HashMap<>();
-        positions = new HashMap<>();
+        map = new HashMap<>();
     }
 
     // get之后将元素移到队头
     public int get(int key) {
-        if(!values.containsKey(key))
+        if(!map.containsKey(key))
             return -1;
         else{
             moveToHead(key);
-            return values.get(key);
+            return map.get(key).value;
         }
     }
 
     // put时key存在则覆盖，并移动；不存在看队列长度，已经满了就先从尾部出队（并从map删除），再往头部加入新元素
     public void put(int key, int value) {
-        if(values.containsKey(key)){
+        if(map.containsKey(key)){
             moveToHead(key);
-            values.put(key, value);
+            map.get(key).value = value;
         }else{
             if(length-2 == base){
                 MyDeque item = tail.poll();
-                positions.remove(item.key);
-                values.remove(item.key);
+                map.remove(item.key);
                 length -= 1;
             }
-            MyDeque item = new MyDeque(key);
+            MyDeque item = new MyDeque(key, value);
             head.add(item);
-            values.put(key, value);
-            positions.put(key,item);
+            map.put(key, item);
             length += 1;
         }
     }
 
     public void moveToHead(int key){
-        MyDeque item = positions.get(key);
+        MyDeque item = map.get(key);
         // 建立新连接
         item.front.next = item.next;
         item.next.front = item.front;
@@ -233,7 +235,7 @@ public class LeetCode146 {
 //        lRUCache.put(2,1);
 //        res = lRUCache.get(2);
 //
-//        res = -1;
+        res = -1;
     }
 
 }
