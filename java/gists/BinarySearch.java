@@ -36,10 +36,10 @@ public class BinarySearch {
 
 
     public static void main(String[] args){
-        int[] array = {1, 5, 4, 3, 2,6};
+        int[] array = {1, 3, 5, 6, 9, 11 };
         Arrays.sort(array);
 
-        System.out.println(findIt(array, 8));
+        System.out.println(findIt(array, 5));
     }
 
 }
