@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.bts.LeetCode"+"17";
+    static String SOLUTIONSCLASS = "solutions.bts.LeetCode"+"39";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -36,7 +36,7 @@ public class SolutionTests {
         String p = "ab.a*d";
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-        Object[] item = { "23" };
+        Object[] item = { new int[]{2,3,6,7}, 7 };
         Object[] suite = {item};
 
         // 反射构造测试对象
