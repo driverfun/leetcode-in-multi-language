@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class SolutionTests {
 
-    static String SOLUTIONSCLASS = "solutions.bts.LeetCode"+"78";
+    static String SOLUTIONSCLASS = "solutions.bts.LeetCode"+"79";
     public static void main(String[] args) throws Exception{
 
         // 准备测试用例
@@ -32,12 +32,10 @@ public class SolutionTests {
         ListNode h1 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{-1,2,4,7});
         ListNode h2 = LinkedListFactory.getLinkedListFromIntegerArray(new int[]{1});
 
-        String s = "abcaaaad";
-        String p = "ab.a*d";
+        char[][] matrix = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
 //        int root = 4;
         // 第一个参数转成Object，第二个参数转Object...
-//        Object[] item = { new int[]{2,3,6,7}, 7 };
-        Object[] item = {new int[]{1,2,3}};
+        Object[] item = { matrix,"SEE" };
         Object[] suite = {item};
 
         // 反射构造测试对象
