@@ -1,5 +1,6 @@
 package sort
 
+// 归并排序，就是二分，分到最后，然后 merge
 func MergeSort(args []int) []int {
 	if len(args) < 2 {
 		return args
@@ -10,6 +11,7 @@ func MergeSort(args []int) []int {
 	return merge(left, right)
 }
 
+// 合并两个有序数组
 func merge(left, right []int) []int {
 	l, r := 0, 0
 	res := make([]int, 0, len(left)+len(right))
