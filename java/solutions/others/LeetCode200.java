@@ -93,15 +93,56 @@ public class LeetCode200 implements SolutionsFacade {
     }
 
     public int find(int x){
-        while(parent[x]!=x)
+        while(parent[x]!=x){
+            parent[x]= parent[parent[x]];
             x = parent[x];
+        }
         return x;
+    }
+
+
+    /**
+     * 思路：深度优先解法
+     *  碰到一个‘1’，我们就把岛内所有元素DFS遍历一次，并用辅助数组记录下来。然后岛的数目加一；
+     *  接下来再碰到‘1’，如果辅助数组中说它已经遍历过，则跳过；否则再搞一遍DFS，并岛数目加一，以此类推。
+     *
+     * @param grid
+     * @return
+     */
+    public int numIslands1(char[][] grid) {
+        int dao = 0;
+        int hang = grid.length;
+        int lie = grid[0].length;
+        boolean[][] path = new boolean[hang][lie];
+        for(int i =0;i<hang;i++)
+            for(int j = 0;j<lie;j++){
+               if(grid[i][j]=='1' && path[i][j]==false){
+                   dfs(grid, i, j, path);
+                   dao ++;
+               }
+            }
+
+        return dao;
+    }
+
+    public void dfs(char[][] grid, int x, int y,  boolean[][]path){
+        if(grid[x][y]=='0' || path[x][y])
+            return;
+        path[x][y] = true;
+        if(x-1>=0)
+            dfs(grid, x-1, y, path);
+        if(x+1<grid.length)
+            dfs(grid,x+1, y, path);
+        if(y-1>=0)
+            dfs(grid,x,y-1, path);
+        if(y+1<grid[0].length)
+            dfs(grid,x,y+1,path);
     }
 
 
     @Override
     public void calculate(Object... objects) {
-        numIslands((char[][]) objects[0]);
+        int res = numIslands1((char[][]) objects[0]);
         int s= 3;
     }
 }
