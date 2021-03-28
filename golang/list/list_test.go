@@ -1,6 +1,9 @@
 package list
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func listNodeFactory(nodes []int) *ListNode {
 	var res *ListNode
@@ -12,6 +15,13 @@ func listNodeFactory(nodes []int) *ListNode {
 		res = curr
 	}
 	return res
+}
+
+func traverseList(node *ListNode) {
+	for node != nil {
+		fmt.Println(node.Val)
+		node = node.Next
+	}
 }
 
 func listNodeFactoryV2(nodes []int) *ListNode {
@@ -31,4 +41,8 @@ func TestIsPalindrome(t *testing.T) {
 
 func TestIsPalindromeV2(t *testing.T) {
 	IsPalindromeV2(listNodeFactoryV2([]int{1, 2, 2, 1}))
+}
+
+func TestReverseKGroup(t *testing.T) {
+	traverseList(ReverseKGroup(listNodeFactoryV2([]int{1, 2, 3, 4, 5}), 3))
 }
