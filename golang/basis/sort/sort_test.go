@@ -52,3 +52,11 @@ func TestMergeSort(t *testing.T) {
 		require.Greater(t, nums[i+1], nums[i])
 	}
 }
+
+func TestHeapSort(t *testing.T) {
+	nums := randomInts(5)
+	HeapSort(nums)
+	for i := 0; i < len(nums)-1; i++ {
+		require.Greater(t, nums[i+1], nums[i])
+	}
+}
