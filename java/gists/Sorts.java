@@ -103,7 +103,7 @@ public class Sorts {
     void QuickSort2(int[] nums, int start, int end){
         if(start>=end)
             return ;
-        int pivot = new Random().nextInt(end-start+1)+end;
+        int pivot = new Random().nextInt(end-start+1)+start;
         int base = nums[pivot];
         // 将基准换到首位来吧
         swap(nums, start, pivot);
@@ -120,7 +120,6 @@ public class Sorts {
                 swap(nums, i, j);
         }
         swap(nums, j, start);
-
         QuickSort2(nums, start, j-1);
         QuickSort2(nums, j+1, end);
     }
@@ -157,9 +156,10 @@ public class Sorts {
     public static void main(String[] args){
         Sorts  ins = new Sorts();
 
-        int[] array = new int[]{4,7,6,5,3,2,8,1};
+        int[] test = {6,4, 2, 3, 2, 1, 5, 3, 1};
 //        int[] array = new int[]{72,6,57,88,60,42,42,83,83,73,48,85};
-        ins.QuickSort3(array, 0, array.length-1);
+        ins.QuickSort2(test, 0, test.length-1);
+//        ins.QuickSort3(array, 0, array.length-1);
 //        ins.partition(new int[]{57, 42,60, 48}, 0,3);
         System.out.println("debug");
 

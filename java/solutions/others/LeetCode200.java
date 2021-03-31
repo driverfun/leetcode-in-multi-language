@@ -93,9 +93,9 @@ public class LeetCode200 implements SolutionsFacade {
     }
 
     public int find(int x){
+
         while(parent[x]!=x){
-            parent[x]= parent[parent[x]];
-            x = parent[x];
+            x = parent[parent[x]];
         }
         return x;
     }
@@ -142,7 +142,7 @@ public class LeetCode200 implements SolutionsFacade {
 
     @Override
     public void calculate(Object... objects) {
-        int res = numIslands1((char[][]) objects[0]);
-        int s= 3;
+        int res = numIslands((char[][]) objects[0]);
+        int t= 3;
     }
 }
